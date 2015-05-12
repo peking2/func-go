@@ -1,10 +1,8 @@
-package arrayops
+package func_go
 
 import (
 	//"fmt"
 	"reflect"
-
-	. "../any"
 )
 
 type ArrayOps []Any

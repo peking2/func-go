@@ -1,10 +1,8 @@
-package arrayops
+package func_go
 
 import (
 	//"fmt"
 	"testing"
-
-	. "../any"
 )
 
 func TestInt(t *testing.T) {

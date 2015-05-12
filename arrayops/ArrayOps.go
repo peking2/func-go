@@ -40,3 +40,13 @@ func (arr ArrayOps) Reduce(lambda func(Any, Any) Any) Any {
 
 	return res
 }
+
+func (arr ArrayOps) Filter(lambda func(Any) bool) ArrayOps {
+	res := make(ArrayOps, 0)
+	for _, v := range arr {
+		if lambda(v) {
+			res = append(res, v)
+		}
+	}
+	return res
+}

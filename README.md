@@ -45,12 +45,12 @@ func (arr *Array) Map(lambda func(Any) Any) *Array
 func (arr *Array) Reduce(lambda func(Any, Any) Any) Any
 
 type Map map[Any]Any
+
+func NewMap(args ...Any) *Map
     Create new Map. Examples:
 
 	1. NewMap()
 	2. NewMap(map[string]string {"name": "Mike"})
-
-func NewMap(args ...Any) *Map
 
 func (m *Map) ForEach(lambda func(Any, Any))
 ```

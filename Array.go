@@ -7,18 +7,25 @@ import (
 
 type Array []Any
 
-func NewArray(arr Any) *Array {
-	kind := reflect.ValueOf(arr).Kind()
-	if kind == reflect.Array || kind == reflect.Slice {
-		arr := reflect.ValueOf(arr)
-		res := make(Array, arr.Len())
-		for i := 0; i < arr.Len(); i++ {
-			res[i] = arr.Index(i).Interface()
-		}
-		return &res
-	} else {
-		return &Array{arr}
+func NewArray(args ...Any) *Array {
+	if len(args) == 0 {
+		return &Array{}
 	}
+
+	if len(args) == 1 {
+		if kind := reflect.ValueOf(args[0]).Kind(); kind == reflect.Array || kind == reflect.Slice {
+			arr := reflect.ValueOf(args[0])
+			res := make(Array, arr.Len())
+			for i := 0; i < arr.Len(); i++ {
+				res[i] = arr.Index(i).Interface()
+			}
+			return &res
+		}
+	}
+
+	var res Array = args
+
+	return &res
 }
 
 func (arr *Array) Map(lambda func(Any) Any) *Array {

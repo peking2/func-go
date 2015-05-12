@@ -30,3 +30,9 @@ func NewMap(args ...Any) *Map {
 		panic(ERROR_INVALID_PARAMETER)
 	}
 }
+
+func (m *Map) ForEach(lambda func(Any, Any)) {
+	for k, v := range *m {
+		lambda(k, v)
+	}
+}

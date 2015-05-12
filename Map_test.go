@@ -51,3 +51,10 @@ func TestNewMapWithOneValidParameter(t *testing.T) {
 		t.Error("Expected Gary, got ", res)
 	}
 }
+
+func TestMapForEach(t *testing.T) {
+	NewMap(map[string]string{
+		"name": "gary",
+	}).
+		ForEach(func(k, v Any) { fmt.Println(k, v) })
+}

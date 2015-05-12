@@ -1,7 +1,7 @@
 package func_go
 
 import (
-	//"fmt"
+	"fmt"
 	"testing"
 )
 
@@ -32,4 +32,9 @@ func TestFilter(t *testing.T) {
 	if len(res) != 2 {
 		t.Error("Expected ArrayOps{2, 4, 6, 8, 10}, got ", res)
 	}
+}
+
+func TestForEach(t *testing.T) {
+	NewArrayOps([]int{1, 2, 3, 4, 5}).
+		ForEach(func(i Any) { fmt.Println(i) })
 }

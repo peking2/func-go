@@ -48,3 +48,9 @@ func (arr ArrayOps) Filter(lambda func(Any) bool) ArrayOps {
 	}
 	return res
 }
+
+func (arr ArrayOps) ForEach(lambda func(Any)) {
+	for _, v := range arr {
+		lambda(v)
+	}
+}

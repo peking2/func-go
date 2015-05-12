@@ -7,7 +7,7 @@ import (
 
 type ArrayOps []Any
 
-func New(arr Any) ArrayOps {
+func NewArrayOps(arr Any) ArrayOps {
 	kind := reflect.ValueOf(arr).Kind()
 	if kind == reflect.Array || kind == reflect.Slice {
 		arr := reflect.ValueOf(arr)

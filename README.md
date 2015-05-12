@@ -1,6 +1,10 @@
 # func-go
 functional programming in Go
 
+## Installation
+```bash
+go get github.com/peking2/func-go
+```
 ## Usage
 ```go
 res := NewArrayOps([]int{1, 2, 3, 4, 5}).

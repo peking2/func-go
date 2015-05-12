@@ -6,7 +6,7 @@ import (
 )
 
 func TestInt(t *testing.T) {
-	res := NewArrayOps(1).
+	res := NewArray(1).
 		Map(func(i Any) Any { return i.(int) * 2 }).
 		Reduce(func(a Any, b Any) Any { return a.(int) + b.(int) })
 
@@ -16,7 +16,7 @@ func TestInt(t *testing.T) {
 }
 
 func TestArray(t *testing.T) {
-	res := NewArrayOps([]int{1, 2, 3, 4, 5}).
+	res := NewArray([]int{1, 2, 3, 4, 5}).
 		Map(func(i Any) Any { return i.(int) * 2 }).
 		Reduce(func(a Any, b Any) Any { return a.(int) + b.(int) })
 
@@ -26,15 +26,15 @@ func TestArray(t *testing.T) {
 }
 
 func TestFilter(t *testing.T) {
-	res := NewArrayOps([]int{1, 2, 3, 4, 5}).
+	res := NewArray([]int{1, 2, 3, 4, 5}).
 		Filter(func(i Any) bool { return i.(int)%2 == 0 })
 
-	if len(res) != 2 {
+	if len(*res) != 2 {
 		t.Error("Expected ArrayOps{2, 4, 6, 8, 10}, got ", res)
 	}
 }
 
 func TestForEach(t *testing.T) {
-	NewArrayOps([]int{1, 2, 3, 4, 5}).
+	NewArray([]int{1, 2, 3, 4, 5}).
 		ForEach(func(i Any) { fmt.Println(i) })
 }

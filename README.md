@@ -9,7 +9,7 @@ go get github.com/peking2/func-go
 ```go
 import . "github.com/peking2/func-go"
 
-res := NewArrayOps([]int{1, 2, 3, 4, 5}).
+res := NewArray([]int{1, 2, 3, 4, 5}).
 	Map(func(i Any) Any { return i.(int) * 2 }).
 	Reduce(func(a Any, b Any) Any { return a.(int) + b.(int) })
 ```

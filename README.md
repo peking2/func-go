@@ -16,7 +16,7 @@ res := NewArray([]int{1, 2, 3, 4, 5}).
 
 ## GoDoc
 
-```.go
+```go
 CONSTANTS
 
 const (

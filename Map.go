@@ -5,13 +5,13 @@ import (
 	"reflect"
 )
 
+type Map map[Any]Any
+
 /*
 Create new Map. Examples:
   1. NewMap()
   2. NewMap(map[string]string {"name": "Mike",})
 */
-type Map map[Any]Any
-
 func NewMap(args ...Any) *Map {
 	if len(args) == 0 {
 		return &Map{}

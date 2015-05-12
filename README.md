@@ -48,7 +48,7 @@ type Map map[Any]Any
     Create new Map. Examples:
 
 	1. NewMap()
-	2. NewMap(map[string]string {"name": "Mike",})
+	2. NewMap(map[string]string {"name": "Mike"})
 
 func NewMap(args ...Any) *Map
 

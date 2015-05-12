@@ -5,6 +5,11 @@ import (
 	"reflect"
 )
 
+/*
+Create new Map. Examples:
+  1. NewMap()
+  2. NewMap(map[string]string {"name": "Mike",})
+*/
 type Map map[Any]Any
 
 func NewMap(args ...Any) *Map {

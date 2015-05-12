@@ -7,6 +7,12 @@ import (
 
 type Array []Any
 
+/*
+Create new Array. Examples:
+  1. NewArray()
+  2. NewArray(1,2,3)
+  3. NewArray([]int {1,2,3})
+*/
 func NewArray(args ...Any) *Array {
 	if len(args) == 0 {
 		return &Array{}

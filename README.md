@@ -26,6 +26,10 @@ const (
 FUNCTIONS
 
 func WrapFunc(f Any) func(...Any) Try
+    Wrap two kinds of functions:
+
+	1. func(...Any) (error)     -> func (...Any) Try
+	2. func(...Any) (Any error) -> func (...Any) Try
 
 TYPES
 

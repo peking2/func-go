@@ -23,6 +23,10 @@ const (
     ERROR_INVALID_PARAMETER = "Invalid parameters"
 )
 
+FUNCTIONS
+
+func WrapFunc(f Any) func(...Any) Try
+
 TYPES
 
 type Any interface{}
@@ -53,4 +57,14 @@ func NewMap(args ...Any) *Map
 	2. NewMap(map[string]string {"name": "Mike"})
 
 func (m *Map) ForEach(lambda func(Any, Any))
+
+type Try struct {
+    Value Any
+}
+
+func (t Try) FlatMap(lambda func(Any) Try) Try
+
+func (t Try) IsFailure() bool
+
+func (t Try) IsSuccess() bool
 ```

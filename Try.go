@@ -6,7 +6,7 @@ import (
 )
 
 type Try struct {
-	Value Any
+	value Any
 }
 
 /*
@@ -48,7 +48,7 @@ func WrapFunc(f Any) func(...Any) Try {
 }
 
 func (t Try) IsFailure() bool {
-	switch t.Value.(type) {
+	switch t.value.(type) {
 	case error:
 		return true
 	default:
@@ -60,10 +60,14 @@ func (t Try) IsSuccess() bool {
 	return !t.IsFailure()
 }
 
+func (t Try) Get() Any {
+	return t.value
+}
+
 func (t Try) FlatMap(lambda func(Any) Try) Try {
 	if t.IsFailure() {
 		return t
 	}
 
-	return lambda(t.Value)
+	return lambda(t.value)
 }

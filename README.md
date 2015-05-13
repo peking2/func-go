@@ -63,10 +63,12 @@ func NewMap(args ...Any) *Map
 func (m *Map) ForEach(lambda func(Any, Any))
 
 type Try struct {
-    Value Any
+    // contains filtered or unexported fields
 }
 
 func (t Try) FlatMap(lambda func(Any) Try) Try
+
+func (t Try) Get() Any
 
 func (t Try) IsFailure() bool
 

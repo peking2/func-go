@@ -26,8 +26,8 @@ func TestWrapFunc(t *testing.T) {
 		t.Error("Expected Success, got ", res)
 	}
 
-	if res.Value != 3 {
-		t.Error("Expected 3, got ", res.Value)
+	if res.Get() != 3 {
+		t.Error("Expected 3, got ", res.Get())
 	}
 
 	res = wf(1, -2)
@@ -36,7 +36,7 @@ func TestWrapFunc(t *testing.T) {
 		t.Error("Expected Failure, got ", res)
 	}
 
-	if res.Value.(error).Error() != ERROR_INVALID_PARAMETER {
-		t.Errorf("Expected %s, got %s", ERROR_INVALID_PARAMETER, res.Value)
+	if res.value.(error).Error() != ERROR_INVALID_PARAMETER {
+		t.Errorf("Expected %s, got %s", ERROR_INVALID_PARAMETER, res.value)
 	}
 }

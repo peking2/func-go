@@ -9,6 +9,11 @@ type Try struct {
 	Value Any
 }
 
+/*
+Wrap two kinds of functions:
+  1. func(...Any) (error)     -> func (...Any) Try
+  2. func(...Any) (Any error) -> func (...Any) Try
+*/
 func WrapFunc(f Any) func(...Any) Try {
 	v := reflect.ValueOf(f)
 

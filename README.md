@@ -66,11 +66,13 @@ type Try struct {
     // contains filtered or unexported fields
 }
 
-func (t Try) FlatMap(lambda func(Any) Try) Try
+func NewTry(v Any) *Try
 
-func (t Try) Get() Any
+func (t *Try) FlatMap(lambda func(Any) Try) *Try
 
-func (t Try) IsFailure() bool
+func (t *Try) Get() Any
 
-func (t Try) IsSuccess() bool
+func (t *Try) IsFailure() bool
+
+func (t *Try) IsSuccess() bool
 ```

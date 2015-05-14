@@ -47,7 +47,11 @@ func WrapFunc(f Any) func(...Any) Try {
 	}
 }
 
-func (t Try) IsFailure() bool {
+func NewTry(v Any) *Try {
+	return &Try{v}
+}
+
+func (t *Try) IsFailure() bool {
 	switch t.value.(type) {
 	case error:
 		return true
@@ -56,18 +60,18 @@ func (t Try) IsFailure() bool {
 	}
 }
 
-func (t Try) IsSuccess() bool {
+func (t *Try) IsSuccess() bool {
 	return !t.IsFailure()
 }
 
-func (t Try) Get() Any {
+func (t *Try) Get() Any {
 	return t.value
 }
 
-func (t Try) FlatMap(lambda func(Any) Try) Try {
+func (t *Try) FlatMap(lambda func(Any) Try) *Try {
 	if t.IsFailure() {
 		return t
 	}
-
-	return lambda(t.value)
+	res := lambda(t.value)
+	return &res
 }

@@ -40,3 +40,15 @@ func TestWrapFunc(t *testing.T) {
 		t.Errorf("Expected %s, got %s", ERROR_INVALID_PARAMETER, res.value)
 	}
 }
+
+func TestNewTry(t *testing.T) {
+	tr := NewTry(1)
+	if tr.IsFailure() {
+		t.Error("Expected Falure, got ", tr)
+	}
+
+	tr = NewTry(errors.New("error"))
+	if tr.IsSuccess() {
+		t.Error("Expected Falure, got ", tr)
+	}
+}
